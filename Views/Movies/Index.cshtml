@@ -1,7 +1,47 @@
-﻿
+﻿@model IEnumerable<Movie>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
+<div class="container-fluid">
+    <div class="row gap-5">
+        @foreach (var item in Model)
+        {
+            <div class="card col-sm-3 shadow">
+                <img src="https://dummyimage.com/500x500/f2f2f2/5e5e5e&text=@item.Title" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h2>@item.Title</h2>
+                    <p>@item.Summary</p>
+                </div>
+                <div class="card-footer d-flex">
+                    <div class="btn-group ms-auto">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        <a class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @*<table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Release Date</th>
+            <th>Language</th>
+            <th>Summary</th>
+        </tr>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Director</td>
+                <td>@movie.ReleaseDate</td>
+                <td>@movie.Language</td>
+                <td>@movie.Summary</td>
+            </tr>
+        }
+    </table>*@
+</div>

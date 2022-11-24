@@ -5,7 +5,7 @@
     /// </summary>
     public class MovieViewModel
     {
-        [StringLength(70, MinimumLength = 10)]
+        [StringLength(70, MinimumLength = 1)]
         public string Title { get; set; }
 
         [StringLength(50, MinimumLength = 2)]
