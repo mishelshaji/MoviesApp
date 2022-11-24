@@ -75,5 +75,16 @@ namespace MoviesApp.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var movie = await _db.Movies.FindAsync(id);
+            if (movie == null)
+                return NotFound();
+
+            _db.Movies.Remove(movie);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
