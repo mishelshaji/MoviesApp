@@ -5,7 +5,9 @@
 
 <h1>Movie List</h1>
 
-<a asp-action="Create" class="btn btn-primary">+ Add movie</a>
+<div class="d-flex">
+    <a asp-action="Create" class="btn btn-success ms-auto my-2">+ Add movie</a>
+</div>
 
 <div class="container-fluid">
     @if(Model.Any()){
