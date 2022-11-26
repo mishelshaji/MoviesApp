@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MoviesApp.Controllers
+namespace MoviesApp.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -45,7 +47,7 @@ namespace MoviesApp.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var movie = await _db.Movies.FindAsync(id);
-            if(movie == null)
+            if (movie == null)
                 return NotFound();
 
             return View(new MovieViewModel()
